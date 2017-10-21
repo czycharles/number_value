@@ -444,7 +444,9 @@ main()
              double_value=double_value*double_var;                
              cout<<"含有"<<max_same_num<<"个连续的:"<<re_num<<"，系数*"<<double_var<<"，当前的系数是"<<double_value<<endl;
          }
-         
+ 
+ //
+         int avoid_repeat_flag = 0;        
  //连续2位数字组合判断      
          max_same_num = 1;
          max_same_num1 = 1;
@@ -501,209 +503,232 @@ main()
                  check_num_mark[k]=check_num_mark[k]+check_num_mark1[k]; 
              double_value=double_value*double_var;                
              cout<<"含有"<<max_same_num<<"个连续的:"<<re_num2[0]<<re_num2[1]<<"，系数*"<<double_var<<"，当前的系数是"<<double_value<<endl;  
+             avoid_repeat_flag = 1;
          }
          
  //连续3位数字组合判断      
-         max_same_num = 1;
-         max_same_num1 = 1;
-         char re_num3[3];
-         for(int i=0;i<30;i++)
-             check_num_mark1[i]=0;
-         for(int i=0;check_num[i]!='\0';i++){
-             for(int j=0;check_num[i+j]!='\0';j++){
-                 if((check_num[i+j]==check_num[i+j+3])&&((check_num[i+j]!=check_num[i+j+1])||(check_num[i+j+1]!=check_num[i+j+2]))&&(check_num[i+j+1]==check_num[i+j+4])&&(check_num[i+j+2]==check_num[i+j+5])){
-                    max_same_num1++;
-                    re_num3[0] = check_num[i+j];
-                    re_num3[1] = check_num[i+j+1];
-                    re_num3[2] = check_num[i+j+2];
-                    check_num_mark1[i+j]=1;
-                    check_num_mark1[i+j+1]=1;
-                    check_num_mark1[i+j+2]=1;
-                    check_num_mark1[i+j+3]=1;
-                    check_num_mark1[i+j+4]=1;
-                    check_num_mark1[i+j+5]=1;
-                    i++;
-                    j++;
+         if(avoid_repeat_flag==0){
+             max_same_num = 1;
+             max_same_num1 = 1;
+             char re_num3[3];
+             for(int i=0;i<30;i++)
+                 check_num_mark1[i]=0;
+             for(int i=0;check_num[i]!='\0';i++){
+                 for(int j=0;check_num[i+j]!='\0';j++){
+                     if((check_num[i+j]==check_num[i+j+3])&&((check_num[i+j]!=check_num[i+j+1])||(check_num[i+j+1]!=check_num[i+j+2]))&&(check_num[i+j+1]==check_num[i+j+4])&&(check_num[i+j+2]==check_num[i+j+5])){
+                        max_same_num1++;
+                        re_num3[0] = check_num[i+j];
+                        re_num3[1] = check_num[i+j+1];
+                        re_num3[2] = check_num[i+j+2];
+                        check_num_mark1[i+j]=1;
+                        check_num_mark1[i+j+1]=1;
+                        check_num_mark1[i+j+2]=1;
+                        check_num_mark1[i+j+3]=1;
+                        check_num_mark1[i+j+4]=1;
+                        check_num_mark1[i+j+5]=1;
+                        i++;
+                        j++;
+                     }
+                     else
+                         break;
                  }
-                 else
+                 if(max_same_num1>max_same_num){
+                     max_same_num=max_same_num1;
+                 }
+                 max_same_num1=1;
+                 if(max_same_num<=1){ 
+                     for(int i=0;i<30;i++)
+                        check_num_mark1[i]=0;
+                 }
+             } 
+             
+             double_var = 1;
+             
+             switch( max_same_num ){
+                 case 2:
+                     double_var = 6;
                      break;
-             }
-             if(max_same_num1>max_same_num){
-                 max_same_num=max_same_num1;
-             }
-             max_same_num1=1;
-             if(max_same_num<=1){ 
-                 for(int i=0;i<30;i++)
-                    check_num_mark1[i]=0;
-             }
-         } 
-         
-         double_var = 1;
-         
-         switch( max_same_num ){
-             case 2:
-                 double_var = 6;
-                 break;
-             case 3:
-                 double_var = 9;
-                 break;
-             default:
-                 double_var = 1;
-                 break;  
-         } 
-         if(   max_same_num>1   ){ 
-             for(int k=0;k<30;k++)
-                 check_num_mark[k]=check_num_mark[k]+check_num_mark1[k];       
-             double_value=double_value*double_var;                
-             cout<<"含有"<<max_same_num<<"个连续的"<<re_num3[0]<<re_num3[1]<<re_num3[2]<<"，系数*"<<double_var<<"，当前的系数是"<<double_value<<endl;  
-         }        
+                 case 3:
+                     double_var = 9;
+                     break;
+                 default:
+                     double_var = 1;
+                     break;  
+             } 
+             if(   max_same_num>1   ){ 
+                 for(int k=0;k<30;k++)
+                     check_num_mark[k]=check_num_mark[k]+check_num_mark1[k];       
+                 double_value=double_value*double_var;                
+                 cout<<"含有"<<max_same_num<<"个连续的"<<re_num3[0]<<re_num3[1]<<re_num3[2]<<"，系数*"<<double_var<<"，当前的系数是"<<double_value<<endl;  
+                 avoid_repeat_flag = 1;
+             }  
+         }      
 
- //连续4位数字组合判断      
-         max_same_num = 1;
-         max_same_num1 = 1;
-         char re_num4[4];
-         for(int i=0;i<30;i++)
-             check_num_mark1[i]=0;
-         for(int i=0;check_num[i]!='\0';i++){
-             for(int j=0;check_num[i+j]!='\0';j++){
-                 if((check_num[i+j]==check_num[i+j+4])&&((check_num[i+j]!=check_num[i+j+1])||(check_num[i+j+1]!=check_num[i+j+2])||(check_num[i+j+2]!=check_num[i+j+3]))&&(check_num[i+j+1]==check_num[i+j+5])&&(check_num[i+j+2]==check_num[i+j+6])&&(check_num[i+j+3]==check_num[i+j+7])){
-                    max_same_num1++;
-                    re_num4[0] = check_num[i+j];
-                    re_num4[1] = check_num[i+j+1];
-                    re_num4[2] = check_num[i+j+2];
-                    re_num4[3] = check_num[i+j+3];
-                    check_num_mark1[i+j]=1;
-                    check_num_mark1[i+j+1]=1;
-                    check_num_mark1[i+j+2]=1;
-                    check_num_mark1[i+j+3]=1;
-                    check_num_mark1[i+j+4]=1;
-                    check_num_mark1[i+j+5]=1;
-                    check_num_mark1[i+j+6]=1;
-                    check_num_mark1[i+j+7]=1;
-                    i++;
-                    j++;
+ //连续4位数字组合判断   
+         if(avoid_repeat_flag==0){   
+             max_same_num = 1;
+             max_same_num1 = 1;
+             char re_num4[4];
+             for(int i=0;i<30;i++)
+                 check_num_mark1[i]=0;
+             for(int i=0;check_num[i]!='\0';i++){
+                 for(int j=0;check_num[i+j]!='\0';j++){
+                     if((check_num[i+j]==check_num[i+j+4])&&((check_num[i+j]!=check_num[i+j+1])||(check_num[i+j+1]!=check_num[i+j+2])||(check_num[i+j+2]!=check_num[i+j+3]))&&(check_num[i+j+1]==check_num[i+j+5])&&(check_num[i+j+2]==check_num[i+j+6])&&(check_num[i+j+3]==check_num[i+j+7])){
+                        max_same_num1++;
+                        re_num4[0] = check_num[i+j];
+                        re_num4[1] = check_num[i+j+1];
+                        re_num4[2] = check_num[i+j+2];
+                        re_num4[3] = check_num[i+j+3];
+                        check_num_mark1[i+j]=1;
+                        check_num_mark1[i+j+1]=1;
+                        check_num_mark1[i+j+2]=1;
+                        check_num_mark1[i+j+3]=1;
+                        check_num_mark1[i+j+4]=1;
+                        check_num_mark1[i+j+5]=1;
+                        check_num_mark1[i+j+6]=1;
+                        check_num_mark1[i+j+7]=1;
+                        i++;
+                        j++;
+                     }
+                     else
+                         break;
                  }
-                 else
+                 if(max_same_num1>max_same_num){
+                     max_same_num=max_same_num1;
+                 }
+                 max_same_num1=1;
+                 if(max_same_num<=1){
+                     for(int i=0;i<30;i++)
+                        check_num_mark1[i]=0;
+                 }
+             } 
+             
+             double_var = 1;
+             
+             switch( max_same_num ){
+                 case 2:
+                     double_var = 8;
                      break;
+                 default:
+                     double_var = 1;
+                     break;  
+             } 
+             if(   max_same_num>1   ){      
+                 for(int k=0;k<30;k++)
+                     check_num_mark[k]=check_num_mark[k]+check_num_mark1[k];  
+                 double_value=double_value*double_var;                
+                 cout<<"含有"<<max_same_num<<"个连续的"<<re_num4[0]<<re_num4[1]<<re_num4[2]<<re_num4[3]<<"，系数*"<<double_var<<"，当前的系数是"<<double_value<<endl; 
+                 avoid_repeat_flag=1; 
              }
-             if(max_same_num1>max_same_num){
-                 max_same_num=max_same_num1;
-             }
-             max_same_num1=1;
-             if(max_same_num<=1){
-                 for(int i=0;i<30;i++)
-                    check_num_mark1[i]=0;
-             }
-         } 
-         
-         double_var = 1;
-         
-         switch( max_same_num ){
-             case 2:
-                 double_var = 8;
-                 break;
-             default:
-                 double_var = 1;
-                 break;  
-         } 
-         if(   max_same_num>1   ){      
-             for(int k=0;k<30;k++)
-                 check_num_mark[k]=check_num_mark[k]+check_num_mark1[k];  
-             double_value=double_value*double_var;                
-             cout<<"含有"<<max_same_num<<"个连续的"<<re_num4[0]<<re_num4[1]<<re_num4[2]<<re_num4[3]<<"，系数*"<<double_var<<"，当前的系数是"<<double_value<<endl;  
          }
 
- //连续5位数字组合判断      
-         max_same_num = 1;
-         max_same_num1 = 1;
-         char re_num5[5];
-         for(int i=0;i<30;i++)
-             check_num_mark1[i]=0;
-         for(int i=0;check_num[i]!='\0';i++){
-             for(int j=0;check_num[i+j]!='\0';j++){
-                 if((check_num[i+j]==check_num[i+j+5])&&((check_num[i+j]!=check_num[i+j+1])||(check_num[i+j+1]!=check_num[i+j+2])||(check_num[i+j+2]!=check_num[i+j+3])||(check_num[i+j+3]!=check_num[i+j+4]))&&(check_num[i+j+1]==check_num[i+j+6])&&(check_num[i+j+2]==check_num[i+j+7])&&(check_num[i+j+3]==check_num[i+j+8])&&(check_num[i+j+4]==check_num[i+j+9])){
-                    max_same_num1++;
-                    re_num5[0] = check_num[i+j];
-                    re_num5[1] = check_num[i+j+1];
-                    re_num5[2] = check_num[i+j+2];
-                    re_num5[3] = check_num[i+j+3];
-                    re_num5[4] = check_num[i+j+4];
-                    check_num_mark1[i+j]=1;
-                    check_num_mark1[i+j+1]=1;
-                    check_num_mark1[i+j+2]=1;
-                    check_num_mark1[i+j+3]=1;
-                    check_num_mark1[i+j+4]=1;
-                    check_num_mark1[i+j+5]=1;
-                    check_num_mark1[i+j+6]=1;
-                    check_num_mark1[i+j+7]=1;
-                    check_num_mark1[i+j+8]=1;
-                    check_num_mark1[i+j+9]=1;
-                    i++;
-                    j++;
+ //连续5位数字组合判断   
+         if(avoid_repeat_flag==0){    
+             max_same_num = 1;
+             max_same_num1 = 1;
+             char re_num5[5];
+             for(int i=0;i<30;i++)
+                 check_num_mark1[i]=0;
+             for(int i=0;check_num[i]!='\0';i++){
+                 for(int j=0;check_num[i+j]!='\0';j++){
+                     if((check_num[i+j]==check_num[i+j+5])&&((check_num[i+j]!=check_num[i+j+1])||(check_num[i+j+1]!=check_num[i+j+2])||(check_num[i+j+2]!=check_num[i+j+3])||(check_num[i+j+3]!=check_num[i+j+4]))&&(check_num[i+j+1]==check_num[i+j+6])&&(check_num[i+j+2]==check_num[i+j+7])&&(check_num[i+j+3]==check_num[i+j+8])&&(check_num[i+j+4]==check_num[i+j+9])){
+                        max_same_num1++;
+                        re_num5[0] = check_num[i+j];
+                        re_num5[1] = check_num[i+j+1];
+                        re_num5[2] = check_num[i+j+2];
+                        re_num5[3] = check_num[i+j+3];
+                        re_num5[4] = check_num[i+j+4];
+                        check_num_mark1[i+j]=1;
+                        check_num_mark1[i+j+1]=1;
+                        check_num_mark1[i+j+2]=1;
+                        check_num_mark1[i+j+3]=1;
+                        check_num_mark1[i+j+4]=1;
+                        check_num_mark1[i+j+5]=1;
+                        check_num_mark1[i+j+6]=1;
+                        check_num_mark1[i+j+7]=1;
+                        check_num_mark1[i+j+8]=1;
+                        check_num_mark1[i+j+9]=1;
+                        i++;
+                        j++;
+                     }
+                     else
+                         break;
                  }
-                 else
+                 if(max_same_num1>max_same_num){
+                     max_same_num=max_same_num1;
+                 }
+                 max_same_num1=1;
+                 if(max_same_num<=1){
+                     for(int i=0;i<30;i++)
+                        check_num_mark1[i]=0;
+                 }
+             } 
+             
+             double_var = 1;
+             
+             switch( max_same_num ){
+                 case 2:
+                     double_var = 10;
                      break;
+                 default:
+                     double_var = 1;
+                     break;  
+             } 
+             if(   max_same_num>1   ){      
+                 for(int k=0;k<30;k++)
+                     check_num_mark[k]=check_num_mark[k]+check_num_mark1[k]; 
+                 double_value=double_value*double_var;                
+                 cout<<"含有"<<max_same_num<<"个连续的"<<re_num5[0]<<re_num5[1]<<re_num5[2]<<re_num5[3]<<re_num5[4]<<"，系数*"<<double_var<<"，当前的系数是"<<double_value<<endl; 
+                 avoid_repeat_flag=1;  
              }
-             if(max_same_num1>max_same_num){
-                 max_same_num=max_same_num1;
-             }
-             max_same_num1=1;
-             if(max_same_num<=1){
-                 for(int i=0;i<30;i++)
-                    check_num_mark1[i]=0;
-             }
-         } 
-         
-         double_var = 1;
-         
-         switch( max_same_num ){
-             case 2:
-                 double_var = 10;
-                 break;
-             default:
-                 double_var = 1;
-                 break;  
-         } 
-         if(   max_same_num>1   ){      
-             for(int k=0;k<30;k++)
-                 check_num_mark[k]=check_num_mark[k]+check_num_mark1[k]; 
-             double_value=double_value*double_var;                
-             cout<<"含有"<<max_same_num<<"个连续的"<<re_num5[0]<<re_num5[1]<<re_num5[2]<<re_num5[3]<<re_num5[4]<<"，系数*"<<double_var<<"，当前的系数是"<<double_value<<endl;  
          }
          
  //对称数字判断 
          char reverse_num[11]={'*','*','*','*','*','*','*','*','*','*','*'};
          int reverse_count=1;
          int reverse_count_final=1;
+         int middle_num = 0;
+         int re_length = 0;
          for(int i=0;i<30;i++)
              check_num_mark1[i]=0;
-         for(int i=1;check_num[i+2]!='\0';i++){
+         for(int i=1;check_num[i]!='\0';i++){
              for(int j=1;((j<=i)&&(check_num[i+j]!='\0'));j++){
-                 if((check_num[i-j]==check_num[i+j])&&(check_num[i]!=check_num[i+j])){
+                 if((check_num[i-j]==check_num[i+j])&&(check_num[i]!=check_num[i+1])){
                      reverse_count=reverse_count+2;
-                     reverse_num[5]=check_num[i];   
-                     reverse_num[5+j]=check_num[i+j];    
-                     reverse_num[5-j]=check_num[i-j]; 
-                     check_num_mark1[i]=1;
-                     check_num_mark1[i+j]=1;
-                     check_num_mark1[i-j]=1;
+                     if(reverse_count>reverse_count_final){
+                         reverse_count_final = reverse_count;
+                         middle_num = i;
+                     }
+                     cout<<i<<j<<middle_num<<endl;
+
                  }
                  else{
-                     reverse_count_final= reverse_count;
-                     reverse_count=0; 
+                     reverse_count=1; 
+                     //cout<<"00000000"<<endl;
                      break;
                  } 
              }
-             if(reverse_count_final>=5)
-                 break;    
+             reverse_count=1;   
              if(reverse_count_final<5){ 
                  for(int k=0;k<30;k++)
                     check_num_mark1[k]=0;
              } 
          }
+         for(int j=1;((j<=middle_num)&&(check_num[middle_num+j]!='\0'));j++){
+             if((check_num[middle_num-j]==check_num[middle_num+j])&&(check_num[middle_num]!=check_num[middle_num+1])){
+                 reverse_num[5]=check_num[middle_num];   
+                 reverse_num[5+j]=check_num[middle_num+j];    
+                 reverse_num[5-j]=check_num[middle_num-j];
+                 re_length=j;
+             }
+         }
          if(reverse_count_final>4){
-             for(int k=0;k<30;k++)
-                 check_num_mark[k]=check_num_mark[k]+check_num_mark1[k];
+             for(int i=0;i<=re_length;i++){
+                 check_num_mark[middle_num+i]++;
+                 check_num_mark[middle_num-i]++;
+                 cout<<check_num_mark[middle_num-i]<<endl;
+             }
+             check_num_mark[middle_num]--;
              double_value = double_value*(reverse_count_final/2);
              cout<<"含有对称数字："<<reverse_num[0]<<reverse_num[1]<<reverse_num[2]<<reverse_num[3]<<reverse_num[4]<<reverse_num[5]<<reverse_num[6]<<reverse_num[7]<<reverse_num[8]<<reverse_num[9]<<reverse_num[10]<<"，系数*"<<reverse_count_final/2<<"，当前的系数是"<<double_value<<endl;  
          }
@@ -749,6 +774,7 @@ main()
              double_value = double_value*double_var;
              cout<<"含有"<<max_dc<<"位等差数列，公差："<<d_final<<" 系数*"<<double_var<<"，当前的系数是"<<double_value<<endl;  
          }
+
 //位数
          switch( length ){
              case 6:
@@ -763,7 +789,7 @@ main()
          } 
          double_value = double_value*double_var;
          cout<<"你输入的是"<<length<<"位JJ号，系数*"<<double_var<<"，当前的系数是"<<double_value<<endl; 
-         
+
 //高频数字
 
          int num_count[10] = {0};
@@ -779,7 +805,7 @@ main()
              }
          }
          for(int i=0;i<10;i++){
-             if(num_count[i]==num_count_max){
+             if((num_count[i]==num_count_max)&&(num_count_max>=4)){
                  for(int j=0;j<length;j++){
                      if((int(check_num[j])-int('0'))==i){
                          check_num_mark[j]++;
