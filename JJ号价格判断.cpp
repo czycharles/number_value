@@ -23,6 +23,7 @@ main()
          cout<<"你输入的是："<<check_num_2<<endl; 
          int length=strlen(check_num); 
          cout<<"长度是："<<length<<endl;
+         
 //689总和判断 
          idx = 0;
          int num_of_8 = 0; 
@@ -34,13 +35,6 @@ main()
                 idx += (1);
              }
          }
-//         if(num_of_8>=3){
-//               check_num_mark1=check_num_mark; 
-//               for(int i=0;i<=29;i++)
-//                   check_num_mark1[i]==0;         
-//             base_value=base_value + num_of_8*5;
-//             cout<<"号码含有"<<num_of_8<<"个8（仅大于等于3个时计算），基数+"<<num_of_8*5<<"，当前的基数是"<<base_value<<endl;
-//          }
           
          idx = 0;
          int num_of_6 = 0; 
@@ -52,13 +46,6 @@ main()
                 idx += (1);
              }
          }
-//         if(num_of_6>=3){
-//             check_num_mark1=check_num_mark; 
-//             for(int i=0;i<=29;i++)
-//                 check_num_mark1[i]=0; 
-//             base_value=base_value + num_of_6*4;
-//             cout<<"号码含有"<<num_of_6<<"个6（仅大于等于3个时计算），基数+"<<num_of_6*4<<"，当前的基数是"<<base_value<<endl;
-//          }
           
          idx = 0;
          int num_of_9 = 0; 
@@ -70,13 +57,6 @@ main()
                 idx += (1);
              }
          }
-//         if(num_of_9>=3){
-//             check_num_mark1=check_num_mark; 
-//            for(int i=0;i<=29;i++)
-//                 check_num_mark1[i]=0; 
-//             base_value=base_value + num_of_9*4;
-//             cout<<"号码含有"<<num_of_9<<"个9（仅大于等于3个时计算），基数+"<<num_of_9*4<<"，当前的基数是"<<base_value<<endl;
-//         }
           
          int special_num_count = num_of_8+num_of_6+num_of_9;
          
@@ -445,7 +425,7 @@ main()
              cout<<"含有"<<max_same_num<<"个连续的:"<<re_num<<"，系数*"<<double_var<<"，当前的系数是"<<double_value<<endl;
          }
  
- //
+
          int avoid_repeat_flag = 0;        
  //连续2位数字组合判断      
          max_same_num = 1;
@@ -483,16 +463,16 @@ main()
          
          switch( max_same_num ){
              case 2:
-                 double_var = 4;
+                 double_var = 2;
                  break;
              case 3:
-                 double_var = 6;
+                 double_var = 3;
                  break;
              case 4:
-                 double_var = 8;
+                 double_var = 4;
                  break;
              case 5:
-                 double_var = 10;
+                 double_var = 5;
                  break;
              default:
                  double_var = 1;
@@ -546,10 +526,10 @@ main()
              
              switch( max_same_num ){
                  case 2:
-                     double_var = 6;
+                     double_var = 3;
                      break;
                  case 3:
-                     double_var = 9;
+                     double_var = 6;
                      break;
                  default:
                      double_var = 1;
@@ -607,7 +587,7 @@ main()
              
              switch( max_same_num ){
                  case 2:
-                     double_var = 8;
+                     double_var = 4;
                      break;
                  default:
                      double_var = 1;
@@ -668,7 +648,7 @@ main()
              
              switch( max_same_num ){
                  case 2:
-                     double_var = 10;
+                     double_var = 5;
                      break;
                  default:
                      double_var = 1;
@@ -699,7 +679,7 @@ main()
                          reverse_count_final = reverse_count;
                          middle_num = i;
                      }
-                     cout<<i<<j<<middle_num<<endl;
+                     //cout<<i<<j<<middle_num<<endl;
 
                  }
                  else{
@@ -726,7 +706,7 @@ main()
              for(int i=0;i<=re_length;i++){
                  check_num_mark[middle_num+i]++;
                  check_num_mark[middle_num-i]++;
-                 cout<<check_num_mark[middle_num-i]<<endl;
+                 //cout<<check_num_mark[middle_num-i]<<endl;
              }
              check_num_mark[middle_num]--;
              double_value = double_value*(reverse_count_final/2);
@@ -816,13 +796,13 @@ main()
          }
          switch(num_count_max){
              case 4:
-                 double_var = 4;
+                 double_var = 2;
                  break;
              case 5:case 6:
                  double_var = 3;
                  break;             
              case 7:case 8:case 9:case 10:
-                 double_var = 2;
+                 double_var = 3;
                  break;
              default:
                  double_var = 1;
@@ -844,10 +824,10 @@ main()
                  double_var = 2;
                  break;
              case 2:
-                 double_var = 2.5;
+                 double_var = 2;
                  break;             
              case 3:
-                 double_var = 2;
+                 double_var = 1.5;
                  break;
              case 4:
                  double_var = 1.5;

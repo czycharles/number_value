@@ -572,16 +572,16 @@ main()
          
          switch( max_same_num ){
              case 2:
-                 double_var = 4;
+                 double_var = 2;
                  break;
              case 3:
-                 double_var = 6;
+                 double_var = 3;
                  break;
              case 4:
-                 double_var = 8;
+                 double_var = 4;
                  break;
              case 5:
-                 double_var = 10;
+                 double_var = 5;
                  break;
              default:
                  double_var = 1;
@@ -635,10 +635,10 @@ main()
              
              switch( max_same_num ){
                  case 2:
-                     double_var = 6;
+                     double_var = 3;
                      break;
                  case 3:
-                     double_var = 9;
+                     double_var = 6;
                      break;
                  default:
                      double_var = 1;
@@ -696,7 +696,7 @@ main()
              
              switch( max_same_num ){
                  case 2:
-                     double_var = 8;
+                     double_var = 4;
                      break;
                  default:
                      double_var = 1;
@@ -757,7 +757,7 @@ main()
              
              switch( max_same_num ){
                  case 2:
-                     double_var = 10;
+                     double_var = 5;
                      break;
                  default:
                      double_var = 1;
@@ -905,13 +905,13 @@ main()
          }
          switch(num_count_max){
              case 4:
-                 double_var = 4;
+                 double_var = 2;
                  break;
              case 5:case 6:
                  double_var = 3;
                  break;             
              case 7:case 8:case 9:case 10:
-                 double_var = 2;
+                 double_var = 3;
                  break;
              default:
                  double_var = 1;
@@ -933,10 +933,10 @@ main()
                  double_var = 2;
                  break;
              case 2:
-                 double_var = 2.5;
+                 double_var = 2;
                  break;             
              case 3:
-                 double_var = 2;
+                 double_var = 1.5;
                  break;
              case 4:
                  double_var = 1.5;
