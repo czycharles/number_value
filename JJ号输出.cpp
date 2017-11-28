@@ -2,27 +2,32 @@
 #include <stdio.h> 
 #include <string.h>
 #include <math.h>
+#include <fstream.h>
 
 using namespace std;
 
 main()
 {
-     while(1){  
+     long long loopcount = 100000;
+     int percent = 0;
+     ofstream SaveFile("numbers_value.csv");
+     while(loopcount<=999999){  
          long long a;
          int base_value = 10;
          double double_value = 1;
          double value = 0;
          int idx = 0;
-         cout<<"请输入你的JJ号："<<endl;
-         cin>>a;        
+         ////cout<<"请输入你的JJ号："<<endl;
+         ////cin>>a;  
+         a = loopcount;     
          char check_num[30];
          int check_num_mark[30]={0};
          int check_num_mark1[30]={0};
          lltoa(a,check_num,10);
          string check_num_2 = check_num;
-         cout<<"你输入的是："<<check_num_2<<endl; 
+         ////cout<<"你输入的是："<<check_num_2<<endl; 
          int length=strlen(check_num); 
-         cout<<"长度是："<<length<<endl;
+         ////cout<<"长度是："<<length<<endl;
 //689总和判断 
          idx = 0;
          int num_of_8 = 0; 
@@ -85,7 +90,7 @@ main()
              for(int i=0;i<20;i++){
                  check_num_mark[i]=check_num_mark[i]+check_num_mark1[i];
              }
-             cout<<"号码总计含有"<<special_num_count<<"个6,8,9（仅单个数大于等于3或总计大于等于5个时计算），基数+"<<num_of_9*4+num_of_6*4+num_of_8*5<<"，当前的基数是"<<base_value<<endl;
+             ////cout<<"号码总计含有"<<special_num_count<<"个6,8,9（仅单个数大于等于3或总计大于等于5个时计算），基数+"<<num_of_9*4+num_of_6*4+num_of_8*5<<"，当前的基数是"<<base_value<<endl;
           }         
              
 //特殊数字组合判断                         
@@ -97,7 +102,7 @@ main()
                 check_num_mark[idx]++; 
                 check_num_mark[idx+1]++; 
                 check_num_mark[idx+2]++; 
-                cout<<"含有518特殊字段，基数+20，当前的基数是"<<base_value<<endl;
+                ////cout<<"含有518特殊字段，基数+20，当前的基数是"<<base_value<<endl;
                 idx += (3);
              }
          }
@@ -110,7 +115,7 @@ main()
                 check_num_mark[idx]++; 
                 check_num_mark[idx+1]++; 
                 check_num_mark[idx+2]++; 
-                cout<<"含有618特殊字段，基数+20，当前的基数是"<<base_value<<endl;
+                ////cout<<"含有618特殊字段，基数+20，当前的基数是"<<base_value<<endl;
                 idx += (3);
              }
          }
@@ -123,7 +128,7 @@ main()
                 check_num_mark[idx]++; 
                 check_num_mark[idx+1]++; 
                 check_num_mark[idx+2]++; 
-                cout<<"含有158特殊字段，基数+20，当前的基数是"<<base_value<<endl;
+                /////cout<<"含有158特殊字段，基数+20，当前的基数是"<<base_value<<endl;
                 idx += (3);
              }
          }
@@ -136,7 +141,7 @@ main()
                 check_num_mark[idx]++; 
                 check_num_mark[idx+1]++; 
                 check_num_mark[idx+2]++; 
-                cout<<"含有168特殊字段，基数+20，当前的基数是"<<base_value<<endl;
+                /////cout<<"含有168特殊字段，基数+20，当前的基数是"<<base_value<<endl;
                 idx += (3);
              }
          }
@@ -149,7 +154,7 @@ main()
                 check_num_mark[idx]++; 
                 check_num_mark[idx+1]++; 
                 check_num_mark[idx+2]++; 
-                cout<<"含有918特殊字段，基数+20，当前的基数是"<<base_value<<endl;
+                /////cout<<"含有918特殊字段，基数+20，当前的基数是"<<base_value<<endl;
                 idx += (3);
              }
          }
@@ -162,7 +167,7 @@ main()
                 check_num_mark[idx]++; 
                 check_num_mark[idx+1]++; 
                 check_num_mark[idx+2]++; 
-                cout<<"含有186特殊字段，基数+20，当前的基数是"<<base_value<<endl;
+                ////cout<<"含有186特殊字段，基数+20，当前的基数是"<<base_value<<endl;
                 idx += (3);
              }
          }     
@@ -175,7 +180,7 @@ main()
                 check_num_mark[idx]++; 
                 check_num_mark[idx+1]++; 
                 check_num_mark[idx+2]++; 
-                cout<<"含有986特殊字段，基数+20，当前的基数是"<<base_value<<endl;
+                /////cout<<"含有986特殊字段，基数+20，当前的基数是"<<base_value<<endl;
                 idx += (3);
              }
          } 
@@ -188,7 +193,7 @@ main()
                 check_num_mark[idx]++; 
                 check_num_mark[idx+1]++; 
                 check_num_mark[idx+2]++; 
-                cout<<"含有968特殊字段，基数+20，当前的基数是"<<base_value<<endl;
+                /////cout<<"含有968特殊字段，基数+20，当前的基数是"<<base_value<<endl;
                 idx += (3);
              }
          } 
@@ -201,7 +206,7 @@ main()
                 check_num_mark[idx]++; 
                 check_num_mark[idx+1]++; 
                 check_num_mark[idx+2]++; 
-                cout<<"含有689特殊字段，基数+20，当前的基数是"<<base_value<<endl;
+                ////cout<<"含有689特殊字段，基数+20，当前的基数是"<<base_value<<endl;
                 idx += (3);
              }
          } 
@@ -214,7 +219,7 @@ main()
                 check_num_mark[idx]++; 
                 check_num_mark[idx+1]++; 
                 check_num_mark[idx+2]++; 
-                cout<<"含有698特殊字段，基数+20，当前的基数是"<<base_value<<endl;
+                ////cout<<"含有698特殊字段，基数+20，当前的基数是"<<base_value<<endl;
                 idx += (3);
              }
          }
@@ -227,7 +232,7 @@ main()
                 check_num_mark[idx]++; 
                 check_num_mark[idx+1]++; 
                 check_num_mark[idx+2]++; 
-                cout<<"含有869特殊字段，基数+20，当前的基数是"<<base_value<<endl;
+                ////cout<<"含有869特殊字段，基数+20，当前的基数是"<<base_value<<endl;
                 idx += (3);
              }
          }   
@@ -240,11 +245,95 @@ main()
                 check_num_mark[idx]++; 
                 check_num_mark[idx+1]++; 
                 check_num_mark[idx+2]++; 
-                cout<<"含有896特殊字段，基数+20，当前的基数是"<<base_value<<endl;
+                ////cout<<"含有896特殊字段，基数+20，当前的基数是"<<base_value<<endl;
                 idx += (3);
              }
          }
+
+         idx = 0;
+         while(idx!= string::npos){
+             idx = check_num_2.find("6688",idx);
+             if (idx != string::npos){
+                base_value=base_value+25;
+                check_num_mark[idx]++; 
+                check_num_mark[idx+1]++; 
+                check_num_mark[idx+2]++; 
+                check_num_mark[idx+3]++; 
+                /////cout<<"含有6688特殊字段，基数+25，当前的基数是"<<base_value<<endl;
+                idx += (4);
+             }
+         }
+
+         idx = 0;
+         while(idx!= string::npos){
+             idx = check_num_2.find("9988",idx);
+             if (idx != string::npos){
+                base_value=base_value+25;
+                check_num_mark[idx]++; 
+                check_num_mark[idx+1]++; 
+                check_num_mark[idx+2]++; 
+                check_num_mark[idx+3]++; 
+                ////cout<<"含有9988特殊字段，基数+25，当前的基数是"<<base_value<<endl;
+                idx += (4);
+             }
+         }
          
+         idx = 0;
+         while(idx!= string::npos){
+             idx = check_num_2.find("6699",idx);
+             if (idx != string::npos){
+                base_value=base_value+25;
+                check_num_mark[idx]++; 
+                check_num_mark[idx+1]++; 
+                check_num_mark[idx+2]++; 
+                check_num_mark[idx+3]++; 
+                /////cout<<"含有6699特殊字段，基数+25，当前的基数是"<<base_value<<endl;
+                idx += (4);
+             }
+         }  
+ 
+         idx = 0;
+         while(idx!= string::npos){
+             idx = check_num_2.find("8866",idx);
+             if (idx != string::npos){
+                base_value=base_value+25;
+                check_num_mark[idx]++; 
+                check_num_mark[idx+1]++; 
+                check_num_mark[idx+2]++; 
+                check_num_mark[idx+3]++; 
+                ////cout<<"含有8866特殊字段，基数+25，当前的基数是"<<base_value<<endl;
+                idx += (4);
+             }
+         }  
+
+         idx = 0;
+         while(idx!= string::npos){
+             idx = check_num_2.find("8899",idx);
+             if (idx != string::npos){
+                base_value=base_value+25;
+                check_num_mark[idx]++; 
+                check_num_mark[idx+1]++; 
+                check_num_mark[idx+2]++; 
+                check_num_mark[idx+3]++; 
+                ////cout<<"含有8899特殊字段，基数+25，当前的基数是"<<base_value<<endl;
+                idx += (4);
+             }
+         }
+
+         idx = 0;
+         while(idx!= string::npos){
+             idx = check_num_2.find("9966",idx);
+             if (idx != string::npos){
+                base_value=base_value+25;
+                check_num_mark[idx]++; 
+                check_num_mark[idx+1]++; 
+                check_num_mark[idx+2]++; 
+                check_num_mark[idx+3]++; 
+                ////cout<<"含有9966特殊字段，基数+25，当前的基数是"<<base_value<<endl;
+                idx += (4);
+             }
+         }
+                                                            
          idx = 0;
          while(idx!= string::npos){
              idx = check_num_2.find("520",idx);
@@ -253,7 +342,7 @@ main()
                 check_num_mark[idx]++; 
                 check_num_mark[idx+1]++; 
                 check_num_mark[idx+2]++; 
-                cout<<"含有520特殊字段，基数+15，当前的基数是"<<base_value<<endl;
+                ////cout<<"含有520特殊字段，基数+15，当前的基数是"<<base_value<<endl;
                 idx += (3);
              }
          }   
@@ -266,7 +355,7 @@ main()
                 check_num_mark[idx]++; 
                 check_num_mark[idx+1]++; 
                 check_num_mark[idx+2]++; 
-                cout<<"含有521特殊字段，基数+15，当前的基数是"<<base_value<<endl;
+                ////cout<<"含有521特殊字段，基数+15，当前的基数是"<<base_value<<endl;
                 idx += (3);
              }
          }              
@@ -279,7 +368,7 @@ main()
                 check_num_mark[idx]++; 
                 check_num_mark[idx+1]++; 
                 check_num_mark[idx+2]++; 
-                cout<<"含有920特殊字段，基数+15，当前的基数是"<<base_value<<endl;
+                ////cout<<"含有920特殊字段，基数+15，当前的基数是"<<base_value<<endl;
                 idx += (3);
              }
          }   
@@ -292,7 +381,7 @@ main()
                 check_num_mark[idx]++; 
                 check_num_mark[idx+1]++; 
                 check_num_mark[idx+2]++; 
-                cout<<"含有921特殊字段，基数+15，当前的基数是"<<base_value<<endl;
+                ////cout<<"含有921特殊字段，基数+15，当前的基数是"<<base_value<<endl;
                 idx += (3);
              }
          }
@@ -306,7 +395,7 @@ main()
                 check_num_mark[idx+1]++; 
                 check_num_mark[idx+2]++; 
                 check_num_mark[idx+3]++; 
-                cout<<"含有1314特殊字段，基数+15，当前的基数是"<<base_value<<endl;
+                ////cout<<"含有1314特殊字段，基数+15，当前的基数是"<<base_value<<endl;
                 idx += (4);
              }
          }   
@@ -320,7 +409,7 @@ main()
                 check_num_mark[idx+1]++; 
                 check_num_mark[idx+2]++; 
                 check_num_mark[idx+3]++; 
-                cout<<"含有3344特殊字段，基数+15，当前的基数是"<<base_value<<endl;
+                ////cout<<"含有3344特殊字段，基数+15，当前的基数是"<<base_value<<endl;
                 idx += (4);
              }
          }
@@ -337,7 +426,7 @@ main()
                 check_num_mark[idx+4]++;
                 check_num_mark[idx+5]++; 
                 check_num_mark[idx+6]++;  
-                cout<<"含有5201314特殊字段，基数再+15，当前的基数是"<<base_value<<endl;
+                ////cout<<"含有5201314特殊字段，基数再+15，当前的基数是"<<base_value<<endl;
                 idx += (7);
              }
          }
@@ -354,7 +443,7 @@ main()
                 check_num_mark[idx+4]++;
                 check_num_mark[idx+5]++; 
                 check_num_mark[idx+6]++;  
-                cout<<"含有5203344特殊字段，基数再+15，当前的基数是"<<base_value<<endl;
+                /////cout<<"含有5203344特殊字段，基数再+15，当前的基数是"<<base_value<<endl;
                 idx += (7);
              }
          }
@@ -371,7 +460,7 @@ main()
                 check_num_mark[idx+4]++;
                 check_num_mark[idx+5]++; 
                 check_num_mark[idx+6]++;  
-                cout<<"含有5213344特殊字段，基数再+15，当前的基数是"<<base_value<<endl;
+                ////cout<<"含有5213344特殊字段，基数再+15，当前的基数是"<<base_value<<endl;
                 idx += (7);
              }
          }
@@ -388,7 +477,7 @@ main()
                 check_num_mark[idx+4]++;
                 check_num_mark[idx+5]++; 
                 check_num_mark[idx+6]++;  
-                cout<<"含有5211314特殊字段，基数再+15，当前的基数是"<<base_value<<endl;
+                /////cout<<"含有5211314特殊字段，基数再+15，当前的基数是"<<base_value<<endl;
                 idx += (7);
              }
          }
@@ -440,9 +529,9 @@ main()
                  break;  
          }   
          
-         if(double_var>=2){        
+         if(double_var>=3){        
              double_value=double_value*double_var;                
-             cout<<"含有"<<max_same_num<<"个连续的:"<<re_num<<"，系数*"<<double_var<<"，当前的系数是"<<double_value<<endl;
+             ////cout<<"含有"<<max_same_num<<"个连续的:"<<re_num<<"，系数*"<<double_var<<"，当前的系数是"<<double_value<<endl;
          }
  
  //
@@ -502,7 +591,7 @@ main()
               for(int k=0;k<30;k++)
                  check_num_mark[k]=check_num_mark[k]+check_num_mark1[k]; 
              double_value=double_value*double_var;                
-             cout<<"含有"<<max_same_num<<"个连续的:"<<re_num2[0]<<re_num2[1]<<"，系数*"<<double_var<<"，当前的系数是"<<double_value<<endl;  
+             ////cout<<"含有"<<max_same_num<<"个连续的:"<<re_num2[0]<<re_num2[1]<<"，系数*"<<double_var<<"，当前的系数是"<<double_value<<endl;  
              avoid_repeat_flag = 1;
          }
          
@@ -559,7 +648,7 @@ main()
                  for(int k=0;k<30;k++)
                      check_num_mark[k]=check_num_mark[k]+check_num_mark1[k];       
                  double_value=double_value*double_var;                
-                 cout<<"含有"<<max_same_num<<"个连续的"<<re_num3[0]<<re_num3[1]<<re_num3[2]<<"，系数*"<<double_var<<"，当前的系数是"<<double_value<<endl;  
+                 ////cout<<"含有"<<max_same_num<<"个连续的"<<re_num3[0]<<re_num3[1]<<re_num3[2]<<"，系数*"<<double_var<<"，当前的系数是"<<double_value<<endl;  
                  avoid_repeat_flag = 1;
              }  
          }      
@@ -617,7 +706,7 @@ main()
                  for(int k=0;k<30;k++)
                      check_num_mark[k]=check_num_mark[k]+check_num_mark1[k];  
                  double_value=double_value*double_var;                
-                 cout<<"含有"<<max_same_num<<"个连续的"<<re_num4[0]<<re_num4[1]<<re_num4[2]<<re_num4[3]<<"，系数*"<<double_var<<"，当前的系数是"<<double_value<<endl; 
+                 ////cout<<"含有"<<max_same_num<<"个连续的"<<re_num4[0]<<re_num4[1]<<re_num4[2]<<re_num4[3]<<"，系数*"<<double_var<<"，当前的系数是"<<double_value<<endl; 
                  avoid_repeat_flag=1; 
              }
          }
@@ -678,7 +767,7 @@ main()
                  for(int k=0;k<30;k++)
                      check_num_mark[k]=check_num_mark[k]+check_num_mark1[k]; 
                  double_value=double_value*double_var;                
-                 cout<<"含有"<<max_same_num<<"个连续的"<<re_num5[0]<<re_num5[1]<<re_num5[2]<<re_num5[3]<<re_num5[4]<<"，系数*"<<double_var<<"，当前的系数是"<<double_value<<endl; 
+                 ////cout<<"含有"<<max_same_num<<"个连续的"<<re_num5[0]<<re_num5[1]<<re_num5[2]<<re_num5[3]<<re_num5[4]<<"，系数*"<<double_var<<"，当前的系数是"<<double_value<<endl; 
                  avoid_repeat_flag=1;  
              }
          }
@@ -699,7 +788,7 @@ main()
                          reverse_count_final = reverse_count;
                          middle_num = i;
                      }
-                     cout<<i<<j<<middle_num<<endl;
+                     //cout<<i<<j<<middle_num<<endl;
 
                  }
                  else{
@@ -726,11 +815,11 @@ main()
              for(int i=0;i<=re_length;i++){
                  check_num_mark[middle_num+i]++;
                  check_num_mark[middle_num-i]++;
-                 cout<<check_num_mark[middle_num-i]<<endl;
+                 //cout<<check_num_mark[middle_num-i]<<endl;
              }
              check_num_mark[middle_num]--;
              double_value = double_value*(reverse_count_final/2);
-             cout<<"含有对称数字："<<reverse_num[0]<<reverse_num[1]<<reverse_num[2]<<reverse_num[3]<<reverse_num[4]<<reverse_num[5]<<reverse_num[6]<<reverse_num[7]<<reverse_num[8]<<reverse_num[9]<<reverse_num[10]<<"，系数*"<<reverse_count_final/2<<"，当前的系数是"<<double_value<<endl;  
+             ////cout<<"含有对称数字："<<reverse_num[0]<<reverse_num[1]<<reverse_num[2]<<reverse_num[3]<<reverse_num[4]<<reverse_num[5]<<reverse_num[6]<<reverse_num[7]<<reverse_num[8]<<reverse_num[9]<<reverse_num[10]<<"，系数*"<<reverse_count_final/2<<"，当前的系数是"<<double_value<<endl;  
          }
 //等差数列判断
          int d=0;
@@ -772,7 +861,7 @@ main()
              for(int k=0;k<30;k++)
                  check_num_mark[k]=check_num_mark[k]+check_num_mark1[k];
              double_value = double_value*double_var;
-             cout<<"含有"<<max_dc<<"位等差数列，公差："<<d_final<<" 系数*"<<double_var<<"，当前的系数是"<<double_value<<endl;  
+             ////cout<<"含有"<<max_dc<<"位等差数列，公差："<<d_final<<" 系数*"<<double_var<<"，当前的系数是"<<double_value<<endl;  
          }
 
 //位数
@@ -788,7 +877,7 @@ main()
                  break;  
          } 
          double_value = double_value*double_var;
-         cout<<"你输入的是"<<length<<"位JJ号，系数*"<<double_var<<"，当前的系数是"<<double_value<<endl; 
+         ////cout<<"你输入的是"<<length<<"位JJ号，系数*"<<double_var<<"，当前的系数是"<<double_value<<endl; 
 
 //高频数字
 
@@ -830,7 +919,7 @@ main()
          }
          if(num_count_max>=4){
              double_value = double_value*double_var;
-             cout<<"你输入的号码有数字出现了"<<num_count_max<<"次，系数*"<<double_var<<"，当前的系数是"<<double_value<<endl;
+             ////cout<<"你输入的号码有数字出现了"<<num_count_max<<"次，系数*"<<double_var<<"，当前的系数是"<<double_value<<endl;
          }
          
 //数字个数 
@@ -859,7 +948,7 @@ main()
              
          if(count_num<5){
              double_value = double_value*double_var;
-             cout<<"你输入的号码仅含有"<<count_num<<"个数字，系数*"<<double_var<<"，当前的系数是"<<double_value<<endl;
+             ////cout<<"你输入的号码仅含有"<<count_num<<"个数字，系数*"<<double_var<<"，当前的系数是"<<double_value<<endl;
          }
          
 //数字纯度 
@@ -880,37 +969,49 @@ main()
              double_var=1;
          if(double_var>1){
              double_value = double_value*double_var;
-             cout<<"该号码有"<<prized_num<<"位有规律的数字，纯度为："<<prized_num_per<<"%，系数*"<<double_var<<"，当前的系数是"<<double_value<<endl;
+             ////cout<<"该号码有"<<prized_num<<"位有规律的数字，纯度为："<<prized_num_per<<"%，系数*"<<double_var<<"，当前的系数是"<<double_value<<endl;
          }
+         ////cout<<"每位数字涉及的规律数为："<<endl; 
+         for(int j=0;j<length;j++){
+             ///cout<<check_num_mark[j];
+         } 
+         ////cout<<endl; 
          //cout<<"该号码纯度为："<<prized_num_per<<"%，系数*"<<double_var<<"，当前的系数是"<<double_value<<endl;
 //是否在首尾          
          if((check_num_mark[0]>0)&&(check_num_mark[length-1]>0)){
              double_var=2;
-             cout<<"规律数字在号码首尾。";
+            //// cout<<"规律数字在号码首尾。";
          } 
          else if(check_num_mark[0]>0){ 
              double_var=1.2;         
-             cout<<"规律数字在号码首部。";
+             ////cout<<"规律数字在号码首部。";
          } 
          else if(check_num_mark[length-1]>0){ 
              double_var=1.2;            
-             cout<<"规律数字在号码尾部。";
+             ////cout<<"规律数字在号码尾部。";
          } 
          double_value = double_value*double_var;
-         cout<<"系数*"<<double_var<<"，当前的系数是"<<double_value<<endl;
+         ////cout<<"系数*"<<double_var<<"，当前的系数是"<<double_value<<endl;
          
          
          value = base_value*double_value;
-         cout<<endl; 
-         for(int j=0;j<length;j++){
-             cout<<check_num_mark[j];
-         } 
-         cout<<endl; 
-         cout<<"最终基数为："<<base_value<<endl;
-         cout<<"最终系数为："<<double_value<<endl;
-         cout<<"该号码价值为："<<value<<endl; 
-         cout<<endl; 
+
+         ////cout<<endl; 
+         ////cout<<"最终基数为："<<base_value<<endl;
+         ////cout<<"最终系数为："<<double_value<<endl;
+         ////cout<<"该号码价值为："<<value<<endl; 
+         ////cout<<endl; 
+         if(value>=50){
+             SaveFile << a <<","<< value <<endl ;
+         }
+         loopcount++;
+         if(loopcount%100000==0){
+             percent = percent + 10;  
+             cout<< percent <<"% percent finish."<<endl;
+         }
     }
+     SaveFile.close();
+     cout<<"All Finish";
      system("pause");
      return 0;
 } 
