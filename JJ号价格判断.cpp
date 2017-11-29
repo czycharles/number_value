@@ -420,7 +420,7 @@ main()
                  break;  
          }   
          
-         if(double_var>=2){        
+         if(double_var>=3){        
              double_value=double_value*double_var;                
              cout<<"含有"<<max_same_num<<"个连续的:"<<re_num<<"，系数*"<<double_var<<"，当前的系数是"<<double_value<<endl;
          }

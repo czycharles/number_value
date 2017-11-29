@@ -1009,6 +1009,8 @@ main()
              percent = percent + 10;  
              cout<< percent <<"% percent finish."<<endl;
          }
+         if(a==998555)
+             cout<< base_value<<" "<<double_value<<endl;
     }
      SaveFile.close();
      cout<<"All Finish";
