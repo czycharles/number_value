@@ -309,7 +309,7 @@ main()
          while(idx!= string::npos){
              idx = check_num_2.find("5201314",idx);
              if (idx != string::npos){
-                base_value=base_value+15;
+                base_value=base_value+50;
                 check_num_mark[idx]++; 
                 check_num_mark[idx+1]++; 
                 check_num_mark[idx+2]++; 
@@ -326,7 +326,7 @@ main()
          while(idx!= string::npos){
              idx = check_num_2.find("5203344",idx);
              if (idx != string::npos){
-                base_value=base_value+15;
+                base_value=base_value+50;
                 check_num_mark[idx]++; 
                 check_num_mark[idx+1]++; 
                 check_num_mark[idx+2]++; 
@@ -343,7 +343,7 @@ main()
          while(idx!= string::npos){
              idx = check_num_2.find("5213344",idx);
              if (idx != string::npos){
-                base_value=base_value+15;
+                base_value=base_value+50;
                 check_num_mark[idx]++; 
                 check_num_mark[idx+1]++; 
                 check_num_mark[idx+2]++; 
@@ -360,7 +360,7 @@ main()
          while(idx!= string::npos){
              idx = check_num_2.find("5211314",idx);
              if (idx != string::npos){
-                base_value=base_value+15;
+                base_value=base_value+50;
                 check_num_mark[idx]++; 
                 check_num_mark[idx+1]++; 
                 check_num_mark[idx+2]++; 
